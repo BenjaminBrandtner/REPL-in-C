@@ -1,8 +1,6 @@
 /*Author: Benjamin Brandtner
  * A Read-Evaluate-Print Loop in C
- * Right now the fundamental structure is working, it can read in one command and up to 9 parameters, and make a call to echo, which prints out the first parameter passed to it.
- * However, I just shifted around pointers and arrays and adresses until it magically worked, so I have no real clue HOW it works.
- * Gotta carefully look at this, try to understand it, and create an explanation for myself. */
+ * Right now the fundamental structure is working, it can read in one command and up to 9 parameters, and make a call to echo, which prints out the first parameter passed to it. */
 
 #define cmdIs(x) (strcmp(command,x)==0)
 
@@ -25,7 +23,7 @@ void parseInput (char *input, char **command, char *parameters[])
 {
 	int i;
 	
-	*command = strtok(input, " \n"); //Careful: strok modifies input
+	*command = strtok(input, " \n");
 
 	parameters[0]=strtok(NULL, " \n");
 	i=1;
@@ -63,7 +61,7 @@ int main (void)
 {
 	char input[100];
 	char *command;
-	char *parameters[10]; //An array of 10 char*
+	char *parameters[10]; 
 	enum actions action=CONT;
 
 	while(action != QUIT)
