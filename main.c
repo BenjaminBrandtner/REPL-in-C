@@ -10,12 +10,13 @@
 enum actions {CONT, QUIT};
 
 //Global Variables
-const bool DEBUG=true;
+const bool DEBUG=false;
+char promptText[30]="user@machine";
 
 //Functions
 void getInput (char *input)
 {
-	printf("user@machine> ");
+	printf("%s ", promptText);
 	fgets(input, 99, stdin);
 }
 
@@ -25,6 +26,7 @@ void parseInput (char *input, char **command, char *parameters[])
 	
 	*command = strtok(input, " \n");
 
+	//TODO: Don't split something that's inside quotation marks
 	parameters[0]=strtok(NULL, " \n");
 	i=1;
 	while(parameters[i-1]!=NULL)
@@ -44,6 +46,10 @@ enum actions decide (char *command, char *parameters[])
 	else if(cmdIs("echo"))
 	{
 		echo(parameters);
+	}
+	else if(cmdIs("prompt"))
+	{
+		prompt(parameters);
 	}
 	else if(cmdIs("quit"))
 	{
