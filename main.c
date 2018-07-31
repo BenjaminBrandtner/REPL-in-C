@@ -11,13 +11,13 @@ enum actions {CONT, QUIT};
 
 //Global Variables
 const bool DEBUG=false;
-char promptText[30]="user@machine";
+char promptText[30]="user@machine ";
 
 //Functions
-void getInput (char *input)
+void getInput (char **input)
 {
-	printf("%s ", promptText);
-	fgets(input, 99, stdin);
+	*input=readline(promptText);
+	add_history(*input);
 }
 
 void parseInput (char *input, char **command, char *parameters[])
@@ -65,14 +65,14 @@ enum actions decide (char *command, char *parameters[])
 
 int main (void)
 {
-	char input[100];
+	char *input;
 	char *command;
 	char *parameters[10]; 
 	enum actions action=CONT;
 
 	while(action != QUIT)
 	{
-		getInput(input);
+		getInput(&input);
 		parseInput(input, &command, parameters);
 
 		if(DEBUG)
@@ -90,6 +90,8 @@ int main (void)
 		}
 
 		action = decide(command, parameters);
+		
+		free(input);
 	}
 
 	printf("\nBye!\n\n");

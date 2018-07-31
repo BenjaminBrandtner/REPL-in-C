@@ -32,5 +32,6 @@ void prompt (char *par[])
 	else
 	{
 		strcpy(promptText, par[0]);
+		strcat(promptText, " ");
 	}
 }
