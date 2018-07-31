@@ -73,6 +73,8 @@ int main (void)
 
 	while(action != QUIT)
 	{
+		puts("Bernds Bombastische Konsole Version 0.0.2\n\n");
+
 		getInput(&input);
 		parseInput(input, &command, parameters);
 

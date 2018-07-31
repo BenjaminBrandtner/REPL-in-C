@@ -1,5 +1,5 @@
 # REPL-in-C
-An exercise for myself to create a Read-Evaluate-Print-Loop and/or simple console-like program.
+An exercise for myself to create a Read-Evaluate-Print-Loop and/or simple shell-like program.
 
 With some help of the tutorial at http://www.buildyourownlisp.com/ .
 
