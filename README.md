@@ -16,3 +16,5 @@ Then compile, linking the library:
 gcc *.c -ledit
 ```
 See [this section](http://www.buildyourownlisp.com/chapter4_interactive_prompt#editing_input) of the tutorial mentioned above for more information about using and compiling with editline.
+
+On Windows, custom functions mimicking the libraries functionality are instead compiled, see [here](preprocessorOptions.c).

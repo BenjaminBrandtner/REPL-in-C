@@ -5,6 +5,7 @@
 #define cmdIs(x) (strcmp(command,x)==0)
 
 #include "standardheaders.h"
+#include "preprocessorOptions.c"
 #include "commands.h"
 
 enum actions {CONT, QUIT};
